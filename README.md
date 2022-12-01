@@ -1,4 +1,17 @@
-----------BACKEND----------
+# Getting Started
+```
+
+python3 -m pip install -r requirements.txt
+python3 manage.py runserver
+
+cd client
+npm i
+npm start
+
+
+# Project Build Notes
+
+## Backend
 
 Install django api framework
 - pip3 install djangorestframework
@@ -15,9 +28,11 @@ Open the project in VSC
 
 Open the project in a browser window
 - python3 manage.py runserver
-- http://127.0.0.1:8000/
+- localhost:8000
 
 
+
+==========
 
 Create a new app
 - python3 manage.py startapp AppName
@@ -33,7 +48,8 @@ After INSTALLED_APPS in settings.py, make the API accessible from all domains fo
 
 
 
-----------FRONTEND----------
+## Frontend
+
 Create the React app in the parent project folder
 - npx create-react-app client -template typescript
 

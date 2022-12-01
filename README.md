@@ -51,7 +51,7 @@ After INSTALLED_APPS in settings.py, make the API accessible from all domains fo
 ## Frontend
 ```
 Create the React app in the parent project folder
-- npx create-react-app client -template typescript
+- npx create-react-app client --template typescript
 
 Open client on port 3000
 - cd client

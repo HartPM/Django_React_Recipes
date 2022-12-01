@@ -17,6 +17,8 @@ Open the project in a browser window
 - python3 manage.py runserver
 - http://127.0.0.1:8000/
 
+
+
 Create a new app
 - python3 manage.py startapp AppName
 

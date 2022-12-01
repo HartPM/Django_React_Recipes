@@ -7,7 +7,7 @@ python3 manage.py runserver
 cd client
 npm i
 npm start
-
+```
 
 # Project Build Notes
 

@@ -12,7 +12,7 @@ npm start
 # Project Build Notes
 
 ## Backend
-
+```
 Install django api framework
 - pip3 install djangorestframework
 
@@ -45,11 +45,11 @@ Add corsheaders to settings.py middleware
 
 After INSTALLED_APPS in settings.py, make the API accessible from all domains for development. Change to whitelisted domains for production.
 - CORS_ORIGIN_ALLOW_ALL = True 
-
+```
 
 
 ## Frontend
-
+```
 Create the React app in the parent project folder
 - npx create-react-app client -template typescript
 
@@ -62,3 +62,4 @@ If another process is running on port 3000
 ==> returns a WID #
 - kill -9 #
 - npm start
+```

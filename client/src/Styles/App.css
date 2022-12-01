@@ -1,0 +1,57 @@
+body {
+  background-color: rgb(50, 52, 53);
+  margin: 0px;
+}
+
+.nav{
+  width: 100%;
+  padding-top: 1.8vw;
+  padding-bottom: 1.8vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  background-color: rgb(3, 34, 64);
+}
+
+.nav img {
+  width: auto;
+  max-width: 100%;
+  max-height: 50px;
+  padding-left: 2vw;
+}
+
+.main {
+  width: 100%;
+  padding-top: 1.8vw;
+  padding-bottom: 1.8vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  text-align: center;
+}
+
+.main h1 {
+  color: rgb(255, 255, 255);
+  font-family: Poppins;
+  width: auto;
+  max-width: 100%;
+  max-height: 50px;
+}
+
+.main h1::after {
+  content: "MD!";
+  color: rgb(41, 167, 220);
+}
+
+.footer {
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height: 90px;
+  text-align: center;
+  background-color: rgb(155, 218, 249);
+}
+
+.footer p {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 2vw;
+}

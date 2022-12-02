@@ -65,4 +65,9 @@ If another process is running on port 3000
 
 Add .pdf type to react-app-env.d.ts
 - declare module '*.pdf'
+
+Install MUI
+- npm install @mui/material @emotion/react @emotion/styled
+- npm install @mui/icons-material 
+
 ```

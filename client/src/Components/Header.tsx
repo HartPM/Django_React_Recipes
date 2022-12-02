@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Logo from '../Assets/Beyond+MD+Logo+Design.png';
-import '../Styles/ProminentAppBar.css';
+import '../Styles/Header.css';
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   alignItems: 'flex-start',
@@ -20,7 +20,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   },
 }));
 
-export default function ProminentAppBar() {
+export default function Header() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar 

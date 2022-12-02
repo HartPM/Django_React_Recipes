@@ -62,4 +62,7 @@ If another process is running on port 3000
 ==> returns a WID #
 - kill -9 #
 - npm start
+
+Add .pdf type to react-app-env.d.ts
+- declare module '*.pdf'
 ```

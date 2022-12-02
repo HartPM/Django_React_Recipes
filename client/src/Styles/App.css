@@ -12,57 +12,6 @@ body {
   background-color: rgb(3, 34, 64);
 }
 
-.nav img {
-  width: auto;
-  max-width: 100%;
-  max-height: 50px;
-  padding-left: 2vw;
-}
-
-.main {
-  width: 100%;
-  padding-top: 1.8vw;
-  padding-bottom: 1.8vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  text-align: center;
-}
-
-.main h1 {
-  color: rgb(255, 255, 255);
-  font-family: Poppins;
-  width: auto;
-  max-width: 100%;
-  max-height: 50px;
-}
-
-.main h1::after {
-  content: "MD!";
-  color: rgb(41, 167, 220);
-}
-
-/* .resume {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  background-color: black;
-  padding-top: 56.25%;
-  padding-bottom: 1.8vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  text-align: center;
-}
-
-.resume iframe {
-  position: absolute;
-  top: 0;
-  margin-left: auto;
-  bottom: 0;
-  margin-right: auto;
-  width: 60%;
-  height: 80%;
-} */
-
 .container {
   display: grid; 
   grid-template-columns: 1fr 1fr; 

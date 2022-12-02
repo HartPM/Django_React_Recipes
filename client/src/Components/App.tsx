@@ -1,4 +1,4 @@
-import Resume from '../Assets/Resume.pdf'
+import Resume from '../Assets/Patrick Hart - Resume.pdf'
 import Logo from '../Assets/Beyond+MD+Logo+Design.png';
 import '../Styles/App.css';
 
@@ -11,16 +11,19 @@ function App() {
           <div className="main">
               <h1>Hello Beyond</h1>
           </div>
-          <div className="resume">
-            <iframe
+          <div className="container">
+            <div className="column">
+              <h1>Column 1</h1>
+            </div>
+            <div className="column">
+              <iframe
                 title="Resume"
-                src={ Resume }
-                frameBorder="0"
-              >
-              </iframe>
+                src={ `${Resume}#view=FitH` }
+              />
+            </div>
           </div>
           <div className="footer">
-              <p>Patrick Hart</p>
+            <p>Patrick Hart</p>
           </div>
     </body>
   );

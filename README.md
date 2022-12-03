@@ -26,6 +26,10 @@ Open the project in VSC
 - cd PHBeyondMD
 - code .
 
+Add rest framework
+- ./PHBeyondMD/settings.py
+- INSTALLED APPS = [..., 'rest_framework',]
+
 Open the project in a browser window
 - python3 manage.py runserver
 - localhost:8000

@@ -69,7 +69,6 @@ function RecipeCard() {
         //   </IconButton>
         // }
         title={recipe.strMeal}
-        subheader={`${recipe.strArea} Recipe`}
       />
       <CardMedia
         component="img"
@@ -79,7 +78,7 @@ function RecipeCard() {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          {`${recipe.strIngredient1} dish`}
+          {`${recipe.strArea}`}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

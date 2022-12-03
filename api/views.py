@@ -41,3 +41,10 @@ def updateRecipe(request, id):
     serializer = RecipeSerializer(recipe)
 
     return Response(serializer.data)
+
+
+@api_view(['DELETE'])
+def destroyRecipe(request, id):
+    recipe = Recipe.objects.get(id = id)
+    recipe.delete()
+    return Response({'status': 204, 'message': 'Recipe was deleted'})

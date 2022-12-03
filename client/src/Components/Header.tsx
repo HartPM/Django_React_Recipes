@@ -44,9 +44,6 @@ export default function Header() {
           >
             Hello BeyondMD!
           </Typography>
-          <IconButton size="large" aria-label="search" color="inherit">
-            <SearchIcon />
-          </IconButton>
           <IconButton
             size="large"
             aria-label="display more actions"

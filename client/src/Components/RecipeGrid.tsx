@@ -18,7 +18,7 @@ export default function RecipeGrid() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Typography variant="h4" gutterBottom>
-        Recipes
+        Recipe Ideas
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={4}>

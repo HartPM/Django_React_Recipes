@@ -7,21 +7,6 @@ import Footer from './Footer';
 
 function App() {
 
-
-  const makeAPICall = async () => {
-    try {
-      const response = await fetch('https://covers.openlibrary.org/b/isbn/0385472579-S.jpg', {mode:'cors'});
-      const data = await response.json();
-      console.log({ data })
-    }
-    catch (e) {
-      console.log(e)
-    }
-  }
-  React.useEffect(() => {
-    makeAPICall();
-  }, [])
-
   return (
     <React.Fragment>
       <CssBaseline />        

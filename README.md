@@ -34,6 +34,16 @@ Open the project in a browser window
 - python3 manage.py runserver
 - localhost:8000
 
+Create api directory in the root directory
+- setup 
+-- __init__.py
+-- views.py
+-- urls.py
+- add to INSTALLED APPS in settings.py
+
+Create recipe app
+- manage.py startapp recipe 
+
 
 
 ==========

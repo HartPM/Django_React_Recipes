@@ -11,6 +11,30 @@ npm start
 
 # Project Build Notes
 
+## PostgreSQL
+```
+Install python postgres adapter
+- pip3 install psycopg2
+
+In settings.py, change DATABASES object
+
+Start/Stop postgres
+- brew services start postgresql
+- brew services stop postgresql
+
+Use psql (postgres utility) to create the DB
+- psql postgres
+- \du
+- CREATE DATABASE beyondmd;
+- GRANT ALL PRIVILEGES ON DATABASE beyondmd TO postgres;
+- \list
+- \connect beyondmd
+- \dt
+- \q
+
+- psql -U userName -d databaseName
+``
+
 ## Backend
 ```
 Install django api framework
@@ -43,7 +67,19 @@ Create api directory in the root directory
 
 Create recipe app
 - manage.py startapp recipe 
+- setup recipe model
 
+Migrations
+- python3 manage.py makemigrations
+- python3 manage.py migrate
+
+Add data to DB
+- python3 manage.py shell
+- from recipe.models import Recipe
+- Recipe.objects.create(strMeal="Recipe Name", etc...)
+- meals = Recipe.objects.all()
+- print(meals)
+- exit()
 
 
 ==========

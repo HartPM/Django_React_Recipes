@@ -4,6 +4,7 @@ import Header from './Header';
 import RecipeGrid from './RecipeGrid';
 import Resume from './Resume';
 import Footer from './Footer';
+import MyRecipes from './MyRecipes';
 
 function App() {
 
@@ -13,6 +14,8 @@ function App() {
       <Header />
       <br />
       <RecipeGrid />
+      <br />
+      <MyRecipes />
       <br />
       <Resume />
       <br />

@@ -4,7 +4,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import DeleteIcon from '@mui/icons-material/Delete';
+import Button from '@mui/material/Button';
 
 interface Meal {
     id: number;
@@ -53,15 +53,26 @@ export default function MyRecipes() {
       }
       
     React.useEffect(() => {
-    makeAPICall();
+        makeAPICall();
     }, []);
 
     const handleDelete = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
     
         const button: HTMLButtonElement = event.currentTarget;
-        console.log(button)
-      };
+        const recipeId = button.value;
+
+        fetch(`http://localhost:8000/recipes/${recipeId}/destroy`, { method: 'DELETE' })
+        .then(res => res.json())
+        .then(data => {
+            if (data.message === 'Recipe was deleted') {
+                makeAPICall()
+            }
+            else {
+                console.log(data)
+            }
+        })
+    };
 
 
     const recipeAccordian = recipes.map((recipe) => (
@@ -82,7 +93,9 @@ export default function MyRecipes() {
             <Typography>
                 {recipe.strInstructions}
             </Typography> 
-            <DeleteIcon onClick={event => handleDelete} />           
+            <Button variant="contained" value={recipe.id} onClick={handleDelete}>
+                Delete Recipe
+            </Button>
             </AccordionDetails>
         </Accordion>
     ));

@@ -40,20 +40,20 @@ function RecipeCard() {
     setExpanded(!expanded);
   };
 
-  const makeAPICall = async () => {
-    try {
-      const res = await fetch('www.themealdb.com/api/json/v1/1/random.php');
-      const data = await res.json();
-      setRecipe(data.meals[0]);
-    }
-    catch (e) {
-      console.log(e)
-    }
-  }
+  // const makeAPICall = async () => {
+  //   try {
+  //     const res = await fetch('www.themealdb.com/api/json/v1/1/random.php');
+  //     const data = await res.json();
+  //     setRecipe(data.meals[0]);
+  //   }
+  //   catch (e) {
+  //     console.log(e)
+  //   }
+  // }
   
-  React.useEffect(() => {
-    makeAPICall();
-  }, [])
+  // React.useEffect(() => {
+  //   makeAPICall();
+  // }, [])
 
   return (
     <Card sx={{ maxWidth: 345 }}>

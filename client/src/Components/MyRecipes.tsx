@@ -5,56 +5,10 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
+import { RecipeProps } from '../Types/Types';
 
-interface Meal {
-    id: number;
-    strMeal: string;
-    strArea: string;
-    strMealThumb: string;
-    strIngredient1: string;
-    strIngredient2: string;
-    strIngredient3: string;
-    strIngredient4: string;
-    strIngredient5: string;
-    strIngredient6: string;
-    strIngredient7: string;
-    strIngredient8: string;
-    strIngredient9: string;
-    strIngredient10: string;
-    strInstructions: string;
-    created: Date;
-  }
 
-// const ingredients: string[] = [
-//     "strIngredient1", 
-//     "strIngredient2",
-//     "strIngredient3", 
-//     "strIngredient4", 
-//     "strIngredient5", 
-//     "strIngredient6", 
-//     "strIngredient7", 
-//     "strIngredient8", 
-//     "strIngredient9", 
-//     "strIngredient10"
-// ]
-
-export default function MyRecipes() {
-    const [recipes, setRecipes] = React.useState<Meal[]>([]);
-
-    const makeAPICall = async () => {
-        try {
-          const res = await fetch('http://localhost:8000/recipes/');
-          const data = await res.json();
-          setRecipes(data);
-        }
-        catch (e) {
-          console.log(e)
-        }
-      }
-      
-    React.useEffect(() => {
-        makeAPICall();
-    }, []);
+export default function MyRecipes({recipes, getMyRecipes}: RecipeProps) {
 
     const handleDelete = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
@@ -66,7 +20,7 @@ export default function MyRecipes() {
         .then(res => res.json())
         .then(data => {
             if (data.message === 'Recipe was deleted') {
-                makeAPICall()
+                getMyRecipes()
             }
             else {
                 console.log(data)
@@ -75,7 +29,7 @@ export default function MyRecipes() {
     };
 
 
-    const recipeAccordian = recipes.map((recipe) => (
+    const recipeAccordian = recipes?.map((recipe) => (
         <Accordion key={recipe.id}>
             <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -109,4 +63,4 @@ export default function MyRecipes() {
         {recipeAccordian}
     </div>
   );
-}
+};

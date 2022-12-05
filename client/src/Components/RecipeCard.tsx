@@ -94,7 +94,7 @@ function RecipeCard({getMyRecipes}: RecipeProps) {
             console.log(data)
         }
     })
-};
+  };
 
   return (
     <Card sx={{ maxWidth: 345 }}>

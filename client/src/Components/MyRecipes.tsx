@@ -5,6 +5,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 import { RecipeProps } from '../Types/Types';
 
 
@@ -47,9 +48,15 @@ export default function MyRecipes({recipes, getMyRecipes}: RecipeProps) {
             <Typography>
                 {recipe.strInstructions}
             </Typography> 
-            <Button variant="contained" value={recipe.id} onClick={handleDelete}>
-                Delete Recipe
-            </Button>
+            <br/>
+            <Stack direction="row" spacing={2}>
+                <Button variant="outlined" margin-right='3px' value={recipe.id} >
+                    Edit
+                </Button>
+                <Button variant="outlined" value={recipe.id} onClick={handleDelete}>
+                    Delete
+                </Button>
+            </Stack>
             </AccordionDetails>
         </Accordion>
     ));

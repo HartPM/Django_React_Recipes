@@ -1,6 +1,12 @@
 # Getting Started
+
+## Run with Docker-Compose
+```
+add notes
 ```
 
+## Run without Docker
+```
 python3 -m pip install -r requirements.txt
 python3 manage.py runserver
 

@@ -13,7 +13,7 @@ import { blue } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Tooltip } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { RecipeProps } from '../Types/Types';
+import { RecipesProps } from '../Types/Types';
 
 interface Dictionary {
   [key: string]: string | undefined;
@@ -34,7 +34,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-function RecipeCard({getMyRecipes}: RecipeProps) {
+function RecipeCard({getMyRecipes}: RecipesProps) {
   const [recipe, setRecipe] = React.useState<Dictionary>({});
   const [expanded, setExpanded] = React.useState(false);
 

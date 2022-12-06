@@ -17,7 +17,17 @@ export interface Meal {
     created: Date;
   }
 
-export type RecipeProps = {
+export type RecipesProps = {
     recipes?: Meal[];
     getMyRecipes: () => Promise<void>;
   }
+
+export type SingleRecipeProps = {
+  recipe: Meal;
+  getMyRecipes: () => Promise<void>;
+}
+
+export type EditProps = {
+  recipe: Meal;
+  ingredients: string[];
+}

@@ -49,7 +49,15 @@ function RecipeAccordian({recipe, getMyRecipes}: SingleRecipeProps) {
         })
     };
 
-    return (
+return (
+    toggleEdit ? 
+        <div>
+            <Typography sx={{fontWeight: 'bold'}}>
+                {strMeal}
+            </Typography>
+            <EditRecipeForm recipe={recipe} ingredients={ingredients} /> 
+        </div>
+    : 
         <Accordion key={id}>
             <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -86,7 +94,6 @@ function RecipeAccordian({recipe, getMyRecipes}: SingleRecipeProps) {
                 {strInstructions}
             </Typography> 
             <br/>
-            {toggleEdit ? <EditRecipeForm recipe={recipe} ingredients={ingredients} /> : null}
             <Stack direction="row" spacing={2}>
                 <Button variant="outlined" margin-right='3px' value={id} onClick={handleEdit}>
                     Edit
@@ -97,7 +104,7 @@ function RecipeAccordian({recipe, getMyRecipes}: SingleRecipeProps) {
             </Stack>
             </AccordionDetails>
         </Accordion>
-    );
+    )
 };
 
 export default RecipeAccordian;

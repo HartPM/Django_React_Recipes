@@ -2,9 +2,9 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Header from './Header';
 import RecipeGrid from './RecipeGrid';
+import MyRecipes from './MyRecipes';
 import Resume from './Resume';
 import Footer from './Footer';
-import MyRecipes from './MyRecipes';
 import { Meal } from '../Types/Types';
 
 
@@ -18,7 +18,7 @@ function App() {
         setRecipes(data);
       }
       catch (e) {
-        console.log(e)
+        alert(e)
       }
     }
     
@@ -40,6 +40,6 @@ function App() {
       <Footer />
     </React.Fragment>
   );
-}
+};
 
 export default App;

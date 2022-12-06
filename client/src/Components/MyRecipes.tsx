@@ -1,19 +1,18 @@
-import * as React from 'react';
+import '../Styles/MyRecipes.css';
 import Typography from '@mui/material/Typography';
 import { RecipesProps } from '../Types/Types';
-import RecipeAccordian from './RecipeAccordian';
+import RecipeAccordion from './RecipeAccordion';
 
 
 export default function MyRecipes({recipes, getMyRecipes}: RecipesProps) {
 
     const recipeRow = recipes?.map((recipe) => (
-        <RecipeAccordian key={recipe.id} recipe={recipe} getMyRecipes={getMyRecipes} />
+        <RecipeAccordion key={recipe.id} recipe={recipe} getMyRecipes={getMyRecipes} />
     ));
 
-
   return (
-    <div>
-        <Typography variant="h4" gutterBottom>
+    <div className="myRecipes">
+        <Typography variant="h4" align="center" gutterBottom>
             My Recipes
         </Typography>
         { recipeRow }

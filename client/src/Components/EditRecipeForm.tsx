@@ -1,7 +1,5 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import { Button } from '@mui/material';
+import { Box, TextField, Button } from '@mui/material';
 import { EditProps, initialFormValues } from '../Types/Types';
 
 function EditRecipeForm({recipe, ingredients, hideForm}: EditProps) {
@@ -20,7 +18,7 @@ function EditRecipeForm({recipe, ingredients, hideForm}: EditProps) {
         strMealThumb: strMealThumb,
         ingredients: ingredients,
         strInstructions: strInstructions,
-    }
+    };
 
     const [formValues, setFormValues] = React.useState<initialFormValues>(initialValues);
 
@@ -40,8 +38,8 @@ function EditRecipeForm({recipe, ingredients, hideForm}: EditProps) {
         setFormValues({
             ...formValues,
             ingredients: changeIngredient
-        })
-    }
+        });
+    };
 
     const editIngredients = ingredients.map((ingredient, index) => (
         <TextField 
@@ -58,7 +56,7 @@ function EditRecipeForm({recipe, ingredients, hideForm}: EditProps) {
     const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
 
-        const iCount = formValues.ingredients.length
+        const iCount = formValues.ingredients.length;
         const recipeObj: { [key: string]: string } = {};
             recipeObj.strMeal= formValues.strMeal;
             recipeObj.strArea= formValues.strArea;
@@ -69,7 +67,7 @@ function EditRecipeForm({recipe, ingredients, hideForm}: EditProps) {
             let key = `strIngredient${i+1}`;
             let val = formValues.ingredients[i];
             recipeObj[key]= val;
-        }
+        };
 
         fetch(`http://localhost:8000/recipes/${recipe.id}/edit/`, {
             method: 'PATCH',
@@ -147,6 +145,6 @@ function EditRecipeForm({recipe, ingredients, hideForm}: EditProps) {
             <br/>
         </Box>
     )
-}
+};
 
 export default EditRecipeForm;

@@ -1,11 +1,5 @@
-import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import SearchIcon from '@mui/icons-material/Search';
+import { AppBar, Box, Toolbar, IconButton, Typography } from '@mui/material';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Logo from '../Assets/Beyond+MD+Logo+Design.png';
 import '../Styles/Header.css';
@@ -56,4 +50,4 @@ export default function Header() {
       </AppBar>
     </Box>
   );
-}
+};

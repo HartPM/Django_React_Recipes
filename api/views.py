@@ -40,7 +40,7 @@ def updateRecipe(request, id):
     recipe.save()
     serializer = RecipeSerializer(recipe)
 
-    return Response(serializer.data)
+    return Response({'status': 'ok', 'message': 'Recipe was updated'})
 
 
 @api_view(['DELETE'])

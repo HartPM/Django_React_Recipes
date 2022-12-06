@@ -30,6 +30,7 @@ export type SingleRecipeProps = {
 export type EditProps = {
   recipe: Meal;
   ingredients: string[];
+  hideForm: () => void;
 }
 
 export type initialFormValues = {

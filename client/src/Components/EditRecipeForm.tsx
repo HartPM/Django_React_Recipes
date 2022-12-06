@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
 import { EditProps, initialFormValues } from '../Types/Types';
 
-function EditRecipeForm({recipe, ingredients}: EditProps) {
+function EditRecipeForm({recipe, ingredients, hideForm}: EditProps) {
     const {
         id,
         strMeal,
@@ -14,6 +14,7 @@ function EditRecipeForm({recipe, ingredients}: EditProps) {
     } = recipe;
 
     const initialValues = {
+        id: id,
         strMeal: strMeal,
         strArea: strArea,
         strMealThumb: strMealThumb,
@@ -53,6 +54,37 @@ function EditRecipeForm({recipe, ingredients}: EditProps) {
             variant="standard" 
         />
     ));
+
+    const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+
+        const iCount = formValues.ingredients.length
+        const recipeObj: { [key: string]: string } = {};
+            recipeObj.strMeal= formValues.strMeal;
+            recipeObj.strArea= formValues.strArea;
+            recipeObj.strMealThumb= formValues.strMealThumb;
+            recipeObj.strInstructions= formValues.strInstructions;
+
+        for (let i=0; i<iCount; i++) {
+            let key = `strIngredient${i+1}`;
+            let val = formValues.ingredients[i];
+            recipeObj[key]= val;
+        }
+
+        fetch(`http://localhost:8000/recipes/${recipe.id}/edit/`, {
+            method: 'PATCH',
+            body: JSON.stringify(recipeObj),
+            headers: {'Content-type': 'application/json'},
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.status === 'ok') {
+                hideForm()
+            } else {
+                alert(data.message)
+            }
+        });
+    };
     
     return (
         <Box
@@ -103,7 +135,12 @@ function EditRecipeForm({recipe, ingredients}: EditProps) {
                 style = {{width: '50ch'}}
             />
             <br/>
-            <Button variant="contained" value={id} >
+            <Button 
+                // type="submit"
+                variant="contained" 
+                value={id}
+                onClick={handleSubmit}
+            >
                 Submit
             </Button>
             <br/>

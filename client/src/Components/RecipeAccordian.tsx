@@ -49,13 +49,18 @@ function RecipeAccordian({recipe, getMyRecipes}: SingleRecipeProps) {
         })
     };
 
+    const hideForm = () => {
+        setToggleEdit(!toggleEdit);
+        getMyRecipes();
+    };
+
 return (
     toggleEdit ? 
         <div>
             <Typography sx={{fontWeight: 'bold'}}>
                 {strMeal}
             </Typography>
-            <EditRecipeForm recipe={recipe} ingredients={ingredients} /> 
+            <EditRecipeForm recipe={recipe} ingredients={ingredients} hideForm={hideForm} /> 
         </div>
     : 
         <Accordion key={id}>

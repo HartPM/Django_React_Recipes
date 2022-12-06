@@ -33,7 +33,7 @@ Use psql (postgres utility) to create the DB
 - \q
 
 - psql -U userName -d databaseName
-``
+```
 
 ## Backend
 ```

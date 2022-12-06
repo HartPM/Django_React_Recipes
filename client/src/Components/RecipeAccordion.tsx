@@ -1,15 +1,17 @@
 import * as React from 'react';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
 import EditRecipeForm from './EditRecipeForm';
 import { SingleRecipeProps } from '../Types/Types';
+import { 
+    Accordion, 
+    AccordionSummary, 
+    AccordionDetails, 
+    Typography, 
+    Button, 
+    Stack 
+} from '@mui/material';
 
-function RecipeAccordian({recipe, getMyRecipes}: SingleRecipeProps) {
+function RecipeAccordion({recipe, getMyRecipes}: SingleRecipeProps) {
     const[toggleEdit, setToggleEdit] = React.useState(false);
 
     const {
@@ -44,9 +46,14 @@ function RecipeAccordian({recipe, getMyRecipes}: SingleRecipeProps) {
                 getMyRecipes()
             }
             else {
-                console.log(data)
+                alert(data)
             }
         })
+    };
+
+    const hideForm = () => {
+        setToggleEdit(!toggleEdit);
+        getMyRecipes();
     };
 
 return (
@@ -55,7 +62,7 @@ return (
             <Typography sx={{fontWeight: 'bold'}}>
                 {strMeal}
             </Typography>
-            <EditRecipeForm recipe={recipe} ingredients={ingredients} /> 
+            <EditRecipeForm recipe={recipe} ingredients={ingredients} hideForm={hideForm} /> 
         </div>
     : 
         <Accordion key={id}>
@@ -104,7 +111,7 @@ return (
             </Stack>
             </AccordionDetails>
         </Accordion>
-    )
+    );
 };
 
-export default RecipeAccordian;
+export default RecipeAccordion;

@@ -15,7 +15,7 @@ npm i
 npm start
 ```
 
-# Project Build Notes
+# Project Development
 
 ## PostgreSQL
 ```

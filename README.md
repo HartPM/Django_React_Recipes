@@ -10,8 +10,8 @@ npm start
 ```
 
 # Project Build Notes
-```
-# PostgreSQL
+
+## PostgreSQL
 ```
 Install python postgres adapter
 - pip3 install psycopg2
@@ -82,8 +82,6 @@ Add data to DB
 - exit()
 
 
-==========
-
 Create a new app
 - python3 manage.py startapp AppName
 
@@ -119,6 +117,4 @@ Add .pdf type to react-app-env.d.ts
 Install MUI
 - npm install @mui/material @emotion/react @emotion/styled
 - npm install @mui/icons-material 
-
-```
 ```

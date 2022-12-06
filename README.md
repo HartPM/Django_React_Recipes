@@ -12,7 +12,6 @@ npm start
 # Project Build Notes
 ```
 ## PostgreSQL
-```
 Install python postgres adapter
 - pip3 install psycopg2
 
@@ -33,7 +32,6 @@ Use psql (postgres utility) to create the DB
 - \q
 
 - psql -U userName -d databaseName
-```
 
 ## Backend
 ```

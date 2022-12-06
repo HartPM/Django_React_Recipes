@@ -31,3 +31,11 @@ export type EditProps = {
   recipe: Meal;
   ingredients: string[];
 }
+
+export type initialFormValues = {
+  strMeal: string;
+  strArea: string;
+  strMealThumb: string;
+  ingredients: string[];
+  strInstructions: string;
+}

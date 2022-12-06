@@ -74,7 +74,7 @@ function RecipeCard({getMyRecipes}: RecipesProps) {
     makeAPICall();
   }, []);
 
-  const handleFavorite = (event: React.MouseEvent<SVGSVGElement>) => {
+  const handleFavorite = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     fetch('http://localhost:8000/recipes/create/', {
@@ -113,7 +113,7 @@ function RecipeCard({getMyRecipes}: RecipesProps) {
       />
       <CardMedia
         component="img"
-        height="194"
+        height="300"
         image={recipe.strMealThumb}
         alt={recipe.strMeal}
       />
@@ -124,8 +124,8 @@ function RecipeCard({getMyRecipes}: RecipesProps) {
       </CardContent>
       <CardActions disableSpacing>
         <Tooltip title="Save Recipe" >
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon onClick={handleFavorite} />
+          <IconButton onClick={handleFavorite} aria-label="add to favorites">
+            <FavoriteIcon />
           </IconButton>
         </Tooltip>
         <ExpandMore

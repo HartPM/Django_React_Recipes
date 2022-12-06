@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { EditProps } from '../Types/Types';
+import { EditProps, initialFormValues } from '../Types/Types';
 
 function EditRecipeForm({recipe, ingredients}: EditProps) {
     const {
@@ -12,16 +12,46 @@ function EditRecipeForm({recipe, ingredients}: EditProps) {
         strInstructions,
     } = recipe;
 
+    const initialValues = {
+        strMeal: strMeal,
+        strArea: strArea,
+        strMealThumb: strMealThumb,
+        ingredients: ingredients,
+        strInstructions: strInstructions,
+    }
+
+    const [formValues, setFormValues] = React.useState<initialFormValues>(initialValues);
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target;
+        setFormValues({
+          ...formValues,
+          [name]: value,
+        });
+    };
+
+    const handleIngredientChange = (event:React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target;
+        const index = parseInt(name.charAt(13))
+        const changeIngredient = formValues.ingredients
+        changeIngredient[index] = value
+        setFormValues({
+            ...formValues,
+            ingredients: changeIngredient
+        })
+    }
+
     const editIngredients = ingredients.map((ingredient, index) => (
         <TextField 
-        key={index}
-        id="outlined-helperText" 
-        label={`Ingredient ${index + 1}`}
-        defaultValue={ingredient} 
-        variant="outlined" 
-    />
-    ))
-
+            key={index}
+            id="standard-helperText" 
+            name={`strIngredient${index}`}
+            label={`Ingredient ${index + 1}`}
+            value={formValues.ingredients[index]} 
+            onChange={handleIngredientChange}
+            variant="standard" 
+        />
+    ));
     
     return (
         <Box
@@ -33,34 +63,43 @@ function EditRecipeForm({recipe, ingredients}: EditProps) {
             autoComplete="off"
             >
             <TextField 
-                id="outlined-helperText" 
+                id="standard-helperText" 
                 label="Recipe Name"
-                defaultValue={strMeal}
-                variant="outlined" 
+                variant="standard"
+                name="strMeal"
+                value={formValues.strMeal} 
+                onChange={handleInputChange}
             />
             <TextField 
-                id="outlined-helperText" 
-                label="Image Url"
-                defaultValue={strMealThumb} 
-                variant="outlined" 
-            />
-            <TextField 
-                id="outlined-helperText" 
+                id="standard-helperText" 
                 label="Area"
-                defaultValue={strArea} 
-                variant="outlined" 
+                name="strArea"
+                value={formValues.strArea} 
+                onChange={handleInputChange}
+                variant="standard" 
             />
+            <TextField 
+                id="standard-helperText" 
+                label="Image Url"
+                name="strMealThumb"
+                value={formValues.strMealThumb} 
+                onChange={handleInputChange}
+                variant="standard" 
+            />
+            <br/>
+            <br/>
             { editIngredients }
             <br/>
+            <br/>
             <TextField 
-                id="outlined-helperText" 
+                id="standard-helperText" 
                 label="Instructions"
-                defaultValue={strInstructions} 
-                variant="outlined" 
+                name="strInstructions"
+                value={formValues.strInstructions} 
+                onChange={handleInputChange}
+                variant="standard" 
                 multiline
-                rows={2}
-                maxRows={4}
-                sx={{width: 300}}
+                style = {{width: '50ch'}}
             />
         </Box>
     )

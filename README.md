@@ -77,8 +77,8 @@ Add data to DB
 - python3 manage.py shell
 - from recipe.models import Recipe
 - Recipe.objects.create(strMeal="Recipe Name", etc...)
-- meals = Recipe.objects.all()
-- print(meals)
+- recipes = Recipe.objects.all()
+- print(recipes)
 - exit()
 
 

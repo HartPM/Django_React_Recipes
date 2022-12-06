@@ -11,7 +11,9 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { blue } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { Tooltip } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { RecipesProps } from '../Types/Types';
 
 interface Dictionary {
   [key: string]: string | undefined;
@@ -32,7 +34,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-function RecipeCard() {
+function RecipeCard({getMyRecipes}: RecipesProps) {
   const [recipe, setRecipe] = React.useState<Dictionary>({});
   const [expanded, setExpanded] = React.useState(false);
 
@@ -44,7 +46,24 @@ function RecipeCard() {
     try {
       const res = await fetch('www.themealdb.com/api/json/v1/1/random.php');
       const data = await res.json();
-      setRecipe(data.meals[0]);
+      const recipeObj = data.meals[0];
+
+      setRecipe({
+        strMeal: recipeObj.strMeal,
+        strArea: recipeObj.strArea,
+        strMealThumb: recipeObj.strMealThumb,
+        strIngredient1: recipeObj.strIngredient1,
+        strIngredient2: recipeObj.strIngredient2,
+        strIngredient3: recipeObj.strIngredient3,
+        strIngredient4: recipeObj.strIngredient4,
+        strIngredient5: recipeObj.strIngredient5,
+        strIngredient6: recipeObj.strIngredient6,
+        strIngredient7: recipeObj.strIngredient7,
+        strIngredient8: recipeObj.strIngredient8,
+        strIngredient9: recipeObj.strIngredient9,
+        strIngredient10: recipeObj.strIngredient10,
+        strInstructions: recipeObj.strInstructions,
+      })
     }
     catch (e) {
       console.log(e)
@@ -53,7 +72,29 @@ function RecipeCard() {
   
   React.useEffect(() => {
     makeAPICall();
-  }, [])
+  }, []);
+
+  const handleFavorite = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
+    fetch('http://localhost:8000/recipes/create/', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify(recipe)
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === 200) {
+          getMyRecipes();
+        }
+        else {
+            console.log(data)
+        }
+    })
+  };
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -72,7 +113,7 @@ function RecipeCard() {
       />
       <CardMedia
         component="img"
-        height="194"
+        height="300"
         image={recipe.strMealThumb}
         alt={recipe.strMeal}
       />
@@ -82,9 +123,11 @@ function RecipeCard() {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
+        <Tooltip title="Save Recipe" >
+          <IconButton onClick={handleFavorite} aria-label="add to favorites">
+            <FavoriteIcon />
+          </IconButton>
+        </Tooltip>
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}

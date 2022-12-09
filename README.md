@@ -1,3 +1,8 @@
+# Overview
+```
+Simple crud app pulls 3 random recipes from a free meal api on page load. The user may save recipes by clicking on the favorite-icon. This action sends a recipe object to a Django api, which saves the recipe to a Postgres database. Saved recipes are displayed in a Material UI accordion. Each recipe can be expanded to view details such as ingredients and directions. From the expanded view, a user may also delete or edit the recipe. 
+```
+
 # Getting Started
 
 ## Run with Docker-Compose
@@ -7,6 +12,14 @@ Not yet working. See progress on branch "docker-compose"
 
 ## Run without Docker
 ```
+Requirements:
+    - Node v14.18.3
+    - Python 3.11.0
+    - pip 22.3.1
+    - psycopg2
+    - PostgreSQL 14.6
+    - Django 4.1.3
+
 python3 -m pip install -r requirements.txt
 python3 manage.py runserver
 

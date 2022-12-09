@@ -1,0 +1,31 @@
+services:
+  # phbeyondmd:
+  #   image: postgres:14.1-alpine
+  #   restart: always
+  #   environment:
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=1234
+  #     # - "POSTGRES_HOST_AUTH_METHOD=trust"
+  #   ports:
+  #     - '5432:5432'
+  #   volumes: 
+  #     - pgdata:/var/lib/postgresql/data
+  #     - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
+
+  phbeyondmd:
+    build: ./beyondmd     
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./phbeyondmd:/phbeyondmd
+    command: bash -c "python3 ../manage.py runserver 0.0.0.0:8000"
+
+  client:
+    build: ./client
+    environment:
+      PORT: 3000
+      # PROXY_API: http://phbeyondmd:8000/
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/client

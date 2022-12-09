@@ -52,14 +52,14 @@ Disable django's default behavior that blocks incoming requests from external do
 - pip3 install django-cors-headers
 
 Create the django project
-- django-admin startproject PHBeyondMD
+- django-admin startproject phbeyondmd
 
 Open the project in VSC
-- cd PHBeyondMD
+- cd phbeyondmd
 - code .
 
 Add rest framework
-- ./PHBeyondMD/settings.py
+- ./phbeyondmd/settings.py
 - INSTALLED APPS = [..., 'rest_framework',]
 
 Open the project in a browser window

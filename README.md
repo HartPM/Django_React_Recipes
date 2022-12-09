@@ -2,7 +2,7 @@
 
 ## Run with Docker-Compose
 ```
-add notes
+Not yet working. See progress on branch "docker-compose"
 ```
 
 ## Run without Docker

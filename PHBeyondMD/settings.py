@@ -89,17 +89,17 @@ WSGI_APPLICATION = 'phbeyondmd.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'beyondmd', 
-        'USER': 'postgres',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1', 
-        'PORT': '5432',
+        # 'NAME': 'beyondmd', 
+        # 'USER': 'postgres',
+        # 'PASSWORD': '',
+        # 'HOST': '127.0.0.1', 
+        # 'PORT': '5432',
 
-        # 'NAME': env("DB_NAME"),
-        # 'USER': env("DB_USER"),
-        # 'PASSWORD': env("DB_PASSWORD"),
-        # 'HOST': env("DB_HOST"),
-        # 'PORT': env("DB_PORT"),
+        'NAME': config("DB_NAME"),
+        'USER': config("DB_USER"),
+        'PASSWORD': config("DB_PASSWORD"),
+        'HOST': config("DB_HOST"),
+        'PORT': config("DB_PORT"),
     }
 }
 

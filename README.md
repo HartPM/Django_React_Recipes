@@ -2,7 +2,12 @@
 
 ## ...With Docker-Compose
 ```
-add notes
+docker ps 
+docker rm -f <ids>
+
+docker compose up -d
+docker compose logs -f
+
 ```
 
 ## ...Without Docker

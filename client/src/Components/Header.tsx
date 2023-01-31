@@ -21,22 +21,13 @@ export default function Header() {
         position="static" 
         style={{ background: 'rgb(3, 34, 64)' }}>
         <StyledToolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <img src={ Logo } alt="BeyondMD Logo" />
-          </IconButton>
           <Typography
             variant="h5"
             noWrap
             component="div"
             sx={{ flexGrow: 1, alignSelf: 'flex-end' }}
           >
-            Hello BeyondMD!
+            Recipe Guide
           </Typography>
           <IconButton
             size="large"

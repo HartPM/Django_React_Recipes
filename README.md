@@ -10,13 +10,25 @@ From the expanded view, a user may also delete or edit the recipe.
 
 # Getting Started
 
-## Run with Docker-Compose
+## ...With Docker-Compose
 ```
+<<<<<<< HEAD
+docker ps 
+docker rm -f <ids>
+
+docker compose up -d
+docker compose logs -f
+
+=======
 Not yet working. See progress on branch "docker-compose"
+>>>>>>> main
 ```
 
-## Run without Docker
+## ...Without Docker
 ```
+<<<<<<< HEAD
+See Project Development section below for local requirements. 
+=======
 Requirements:
     - Node v14.18.3
     - Python 3.11.0
@@ -24,6 +36,7 @@ Requirements:
     - psycopg2
     - PostgreSQL 14.6
     - Django 4.1.3
+>>>>>>> main
 
 python3 -m pip install -r requirements.txt
 python3 manage.py runserver
@@ -37,8 +50,8 @@ npm start
 
 ## PostgreSQL
 ```
-Install python postgres adapter
-- pip3 install psycopg2
+<!-- Install python postgres adapter
+- pip3 install psycopg2 -->
 
 In settings.py, change DATABASES object
 
@@ -68,14 +81,14 @@ Disable django's default behavior that blocks incoming requests from external do
 - pip3 install django-cors-headers
 
 Create the django project
-- django-admin startproject PHBeyondMD
+- django-admin startproject phbeyondmd
 
 Open the project in VSC
-- cd PHBeyondMD
+- cd phbeyondmd
 - code .
 
 Add rest framework
-- ./PHBeyondMD/settings.py
+- ./phbeyondmd/settings.py
 - INSTALLED APPS = [..., 'rest_framework',]
 
 Open the project in a browser window

@@ -13,7 +13,7 @@ export default function MyRecipes({recipes, getMyRecipes}: RecipesProps) {
   return (
     <div className="myRecipes">
         <Typography variant="h4" align="center" gutterBottom>
-            My Recipes
+            My Favorites
         </Typography>
         { recipeRow }
     </div>

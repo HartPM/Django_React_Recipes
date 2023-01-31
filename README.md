@@ -48,10 +48,10 @@ Start/Stop postgres
 Use psql (postgres utility) to create the DB
 - psql postgres
 - \du
-- CREATE DATABASE beyondmd;
-- GRANT ALL PRIVILEGES ON DATABASE beyondmd TO postgres;
+- CREATE DATABASE <project_name>;
+- GRANT ALL PRIVILEGES ON DATABASE <project_name> TO postgres;
 - \list
-- \connect beyondmd
+- \connect <project_name>
 - \dt
 - \q
 
@@ -67,14 +67,14 @@ Disable django's default behavior that blocks incoming requests from external do
 - pip3 install django-cors-headers
 
 Create the django project
-- django-admin startproject phbeyondmd
+- django-admin startproject <project_name>
 
 Open the project in VSC
-- cd phbeyondmd
+- cd <project_name>
 - code .
 
 Add rest framework
-- ./phbeyondmd/settings.py
+- ./<project_name>/settings.py
 - INSTALLED APPS = [..., 'rest_framework',]
 
 Open the project in a browser window

@@ -12,6 +12,8 @@ From the expanded view, a user may also delete or edit the recipe.
 
 ## ...With Docker-Compose
 ```
+Bug fixes needed to run the backend with Docker
+
 docker ps 
 docker rm -f <ids>
 

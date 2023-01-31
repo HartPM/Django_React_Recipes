@@ -1,7 +1,6 @@
 import { styled } from '@mui/material/styles';
 import { AppBar, Box, Toolbar, IconButton, Typography } from '@mui/material';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import Logo from '../Assets/Beyond+MD+Logo+Design.png';
 import '../Styles/Header.css';
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import '../Styles/Resume.css';
 import { styled } from '@mui/material/styles';
-import { Box, Paper, Grid, Typography, Button } from '@mui/material';
+import { Box, Paper, Grid, Button } from '@mui/material';
 import myResume from '../Assets/Patrick Hart - Resume.pdf'
 
 const Item = styled(Paper)(({ theme }) => ({

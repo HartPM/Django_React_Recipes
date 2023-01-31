@@ -12,31 +12,17 @@ From the expanded view, a user may also delete or edit the recipe.
 
 ## ...With Docker-Compose
 ```
-<<<<<<< HEAD
 docker ps 
 docker rm -f <ids>
 
 docker compose up -d
 docker compose logs -f
 
-=======
-Not yet working. See progress on branch "docker-compose"
->>>>>>> main
 ```
 
 ## ...Without Docker
 ```
-<<<<<<< HEAD
 See Project Development section below for local requirements. 
-=======
-Requirements:
-    - Node v14.18.3
-    - Python 3.11.0
-    - pip 22.3.1
-    - psycopg2
-    - PostgreSQL 14.6
-    - Django 4.1.3
->>>>>>> main
 
 python3 -m pip install -r requirements.txt
 python3 manage.py runserver

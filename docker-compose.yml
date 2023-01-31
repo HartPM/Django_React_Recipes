@@ -13,10 +13,10 @@ services:
       # - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
 
   web:
-    build: .
+    build: ./backend
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/code
+      - ./backend:/code
     # environment:
     #   PORT: 8000
     ports:

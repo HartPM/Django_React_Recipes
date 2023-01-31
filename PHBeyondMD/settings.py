@@ -23,9 +23,9 @@ from decouple import config
 SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -86,20 +86,51 @@ WSGI_APPLICATION = 'phbeyondmd.wsgi.application'
 # env = environ.Env()
 # environ.Env.read_env()
 
+import psycopg2
+from psycopg2 import Error
+
+try:
+    # Connect to an existing database
+    connection = psycopg2.connect(user="postgres",
+                                  password="",
+                                  host="127.0.0.1",
+                                  port="5432",
+                                  database="beyondmd")
+
+    # Create a cursor to perform database operations
+    cursor = connection.cursor()
+    # Print PostgreSQL details
+    print("PostgreSQL server information")
+    print(connection.get_dsn_parameters(), "\n")
+    # Executing a SQL query
+    cursor.execute("SELECT version();")
+    # Fetch result
+    record = cursor.fetchone()
+    print("You are connected to - ", record, "\n")
+
+except (Exception, Error) as error:
+    print("Error while connecting to PostgreSQL", error)
+finally:
+    if (connection):
+        cursor.close()
+        connection.close()
+        print("PostgreSQL connection is closed")
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        # 'NAME': 'beyondmd', 
-        # 'USER': 'postgres',
-        # 'PASSWORD': '',
+        'NAME': 'beyondmd', 
+        'USER': 'postgres',
+        'PASSWORD': '',
         # 'HOST': '127.0.0.1', 
-        # 'PORT': '5432',
+        'HOST': 'localhost', 
+        'PORT': '5432',
 
-        'NAME': config("DB_NAME"),
-        'USER': config("DB_USER"),
-        'PASSWORD': config("DB_PASSWORD"),
-        'HOST': config("DB_HOST"),
-        'PORT': config("DB_PORT"),
+        # 'NAME': config("DB_NAME"),
+        # 'USER': config("DB_USER"),
+        # 'PASSWORD': config("DB_PASSWORD"),
+        # 'HOST': config("DB_HOST"),
+        # 'PORT': config("DB_PORT"),
     }
 }
 

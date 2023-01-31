@@ -8,10 +8,9 @@ WORKDIR /code
 
 # copy from the current directory of the Dockerfile to /api in the image
 ADD requirements.txt /code/
+ADD . /code/
 
 RUN python3 -m pip install -r requirements.txt
-
-ADD . /code/
 
 # EXPOSE 8000
 

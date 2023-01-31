@@ -36,8 +36,8 @@ npm start
 
 ## PostgreSQL
 ```
-<!-- Install python postgres adapter
-- pip3 install psycopg2 -->
+Install python postgres adapter
+- pip3 install psycopg2
 
 In settings.py, change DATABASES object
 

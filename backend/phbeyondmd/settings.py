@@ -91,11 +91,13 @@ from psycopg2 import Error
 
 try:
     # Connect to an existing database
-    connection = psycopg2.connect(user="postgres",
-                                  password="",
-                                  host="127.0.0.1",
-                                  port="5432",
-                                  database="beyondmd")
+    connection = psycopg2.connect(
+        user="postgres",
+        password="",
+        host="127.0.0.1",
+        port="5432",
+        database="beyondmd"
+        )
 
     # Create a cursor to perform database operations
     cursor = connection.cursor()
@@ -119,18 +121,11 @@ finally:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'beyondmd', 
-        'USER': 'postgres',
-        'PASSWORD': '',
-        # 'HOST': '127.0.0.1', 
-        'HOST': 'localhost', 
-        'PORT': '5432',
-
-        # 'NAME': config("DB_NAME"),
-        # 'USER': config("DB_USER"),
-        # 'PASSWORD': config("DB_PASSWORD"),
-        # 'HOST': config("DB_HOST"),
-        # 'PORT': config("DB_PORT"),
+        'NAME': config("DB_NAME"),
+        'USER': config("DB_USER"),
+        'PASSWORD': config("DB_PASSWORD"),
+        'HOST': config("DB_HOST"),
+        'PORT': config("DB_PORT"),
     }
 }
 

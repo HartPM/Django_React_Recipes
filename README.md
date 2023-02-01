@@ -26,6 +26,7 @@ docker compose logs -f
 ```
 See Project Development section below for local requirements. 
 
+cd backend
 python3 -m pip install -r requirements.txt
 python3 manage.py runserver
 
@@ -47,7 +48,7 @@ Start/Stop postgres
 - brew services start postgresql
 - brew services stop postgresql
 
-Use psql (postgres utility) to create the DB
+Use psql to create the DB
 - psql postgres
 - \du
 - CREATE DATABASE <project_name>;

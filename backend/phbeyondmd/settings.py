@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +27,7 @@ SECRET_KEY = config("SECRET_KEY")
 # DEBUG = True
 import os
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -91,44 +92,48 @@ WSGI_APPLICATION = 'phbeyondmd.wsgi.application'
 import psycopg2
 from psycopg2 import Error
 
-try:
-    # Connect to an existing database
-    connection = psycopg2.connect(
-        user="postgres",
-        password="",
-        host="127.0.0.1",
-        port="5432",
-        database="beyondmd"
-        )
+# try:
+#     # Connect to an existing database
+#     connection = psycopg2.connect(
+#         user="postgres",
+#         password="",
+#         host="127.0.0.1",
+#         port="5432",
+#         database="beyondmd"
+#         )
 
-    # Create a cursor to perform database operations
-    cursor = connection.cursor()
-    # Print PostgreSQL details
-    print("PostgreSQL server information")
-    print(connection.get_dsn_parameters(), "\n")
-    # Executing a SQL query
-    cursor.execute("SELECT version();")
-    # Fetch result
-    record = cursor.fetchone()
-    print("You are connected to - ", record, "\n")
+#     # Create a cursor to perform database operations
+#     cursor = connection.cursor()
+#     # Print PostgreSQL details
+#     print("PostgreSQL server information")
+#     print(connection.get_dsn_parameters(), "\n")
+#     # Executing a SQL query
+#     cursor.execute("SELECT version();")
+#     # Fetch result
+#     record = cursor.fetchone()
+#     print("You are connected to - ", record, "\n")
 
-except (Exception, Error) as error:
-    print("Error while connecting to PostgreSQL", error)
-finally:
-    if (connection):
-        cursor.close()
-        connection.close()
-        print("PostgreSQL connection is closed")
+# except (Exception, Error) as error:
+#     print("Error while connecting to PostgreSQL", error)
+# finally:
+#     if (connection):
+#         cursor.close()
+#         connection.close()
+#         print("PostgreSQL connection is closed")
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': config("DB_NAME"),
+#         'USER': config("DB_USER"),
+#         'PASSWORD': config("DB_PASSWORD"),
+#         'HOST': config("DB_HOST"),
+#         'PORT': config("DB_PORT"),
+#     }
+# }
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config("DB_NAME"),
-        'USER': config("DB_USER"),
-        'PASSWORD': config("DB_PASSWORD"),
-        'HOST': config("DB_HOST"),
-        'PORT': config("DB_PORT"),
-    }
+    'default': dj_database_url.parse(config("DATABASE_URL"))
 }
 
 

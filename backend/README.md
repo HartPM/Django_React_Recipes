@@ -124,10 +124,34 @@ Add corsheaders to settings.py middleware
 
 After INSTALLED_APPS in settings.py, make the API accessible from all domains for development. Change to whitelisted domains for production.
 - CORS_ORIGIN_ALLOW_ALL = True 
+```
 
 
+## Frontend
+```
+Create the React app in the parent project folder
+- npx create-react-app client --template typescript
 
-Deployment on Render
+Open client on port 3000
+- cd client
+- npm start
+
+If another process is running on port 3000
+- lsof -t -i:9292
+==> returns a WID #
+- kill -9 #
+- npm start
+
+Add .pdf type to react-app-env.d.ts
+- declare module '*.pdf'
+
+Install MUI
+- npm install @mui/material @emotion/react @emotion/styled
+- npm install @mui/icons-material 
+```
+
+## Deployment on Render
+```
 - Create Postgres DB on Render
 
 - python3 manage.py check --deploy
@@ -159,28 +183,4 @@ Deployment on Render
 - create a postgres server
 - create a web service and point it to your postgres server on render
 - create a static site and push your react frontend to this service
-```
-
-
-## Frontend
-```
-Create the React app in the parent project folder
-- npx create-react-app client --template typescript
-
-Open client on port 3000
-- cd client
-- npm start
-
-If another process is running on port 3000
-- lsof -t -i:9292
-==> returns a WID #
-- kill -9 #
-- npm start
-
-Add .pdf type to react-app-env.d.ts
-- declare module '*.pdf'
-
-Install MUI
-- npm install @mui/material @emotion/react @emotion/styled
-- npm install @mui/icons-material 
 ```
